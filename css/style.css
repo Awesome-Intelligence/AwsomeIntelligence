@@ -1,0 +1,1247 @@
+/* ========== 苹果风格设计 ==========
+   极简主义、精致细节、优雅排版
+   ================================= */
+
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 跳转到主要内容链接（可访问性） */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #0071e3;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 6px;
+    z-index: 1000;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* 苹果风格变量 - 黑白主题 */
+:root {
+    /* 苹果官方色彩 - 黑白 */
+    --apple-blue: #000000;
+    --apple-gray: #86868b;
+    --apple-light-gray: #f5f5f7;
+    --apple-dark-gray: #1d1d1f;
+    --apple-black: #000000;
+    --apple-white: #ffffff;
+    --apple-accent: #0071e3;
+    
+    /* 背景色 */
+    --background-primary: var(--apple-white);
+    --background-secondary: var(--apple-light-gray);
+    --background-tertiary: #ffffff;
+    --background-card: rgba(255, 255, 255, 0.85);
+    
+    /* 文字颜色 */
+    --text-primary: var(--apple-black);
+    --text-secondary: var(--apple-gray);
+    --text-tertiary: #6e6e73;
+    
+    /* 边框和分割线 */
+    --border-color: rgba(0, 0, 0, 0.08);
+    
+    /* 阴影 - 更柔和的苹果风格 */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.08);
+    
+    /* 圆角 */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-full: 9999px;
+    
+    /* 间距系统 */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 96px;
+    
+    /* 过渡动画 */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-primary: #000000;
+        --background-secondary: #121212;
+        --background-tertiary: #1c1c1e;
+        --text-primary: var(--apple-white);
+        --text-secondary: #aeaeb2;
+        --text-tertiary: #8e8e93;
+        --border-color: #3a3a3c;
+    }
+}
+
+/* 苹果字体栈 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--text-primary);
+    background-color: var(--background-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 容器 */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* 头部导航 - 苹果风格 */
+header {
+    background-color: var(--background-primary);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: var(--space-xl);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.logo:hover {
+    color: var(--text-secondary);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    position: relative;
+    white-space: nowrap;
+    padding: 4px 0;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--apple-black);
+    transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    min-width: 50px;
+}
+
+/* 英雄区域 - 苹果风格 */
+.hero {
+    padding: var(--space-4xl) 0 var(--space-3xl);
+    text-align: center;
+    background: var(--background-primary);
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.hero p {
+    font-size: 20px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--space-2xl);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* 主要内容区域 */
+.main-content {
+    padding: var(--space-2xl) 0;
+}
+
+/* 模块区域 */
+.module-section {
+    padding: var(--space-3xl) 0;
+}
+
+.module-section:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+}
+
+.section-title h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.section-title p {
+    color: var(--text-secondary);
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* 业务板块网格 - 苹果卡片风格 */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+}
+
+.service-card {
+    background: var(--background-tertiary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    border: none;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.service-card-link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.service-card-link:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.service-card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.service-card p {
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* 科技媒体模块 - 2x2网格布局 */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.media-card {
+    background: var(--background-tertiary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+}
+
+.media-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.media-card-icon {
+    font-size: 32px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.media-card-content {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+.media-card-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.01em;
+}
+
+.media-card-content p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: var(--space-sm);
+}
+
+.media-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: var(--space-sm) 0;
+}
+
+.media-stats .stat {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    background: var(--background-secondary);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+.media-stats .stat strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.media-card-highlight {
+    background: var(--background-tertiary);
+}
+
+.follow-us-section {
+    margin-top: 16px;
+}
+
+.qr-with-more {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.qr-grid {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.qr-grid .qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.qr-grid .qr-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.qr-grid .qr-item span {
+    font-size: 10px;
+    color: var(--text-tertiary);
+}
+
+/* 悬停放大效果 */
+.qr-grid .qr-item .qr-preview {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 12px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    margin-bottom: 8px;
+    width: max-content;
+    min-width: 224px;
+}
+
+.qr-grid .qr-item .qr-preview img {
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 8px;
+    display: block;
+    object-fit: contain;
+    box-shadow: none !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+.qr-grid .qr-item .qr-preview img:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.qr-grid .qr-item .qr-preview p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--background-secondary);
+    color: var(--text-secondary);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.more-btn:hover {
+    background: var(--apple-black);
+    color: white;
+}
+
+.more-btn[aria-expanded="true"] {
+    background: var(--apple-black);
+    color: white;
+}
+
+.more-btn[aria-expanded="true"] .more-icon {
+    transform: rotate(45deg);
+}
+
+.more-icon {
+    transition: transform 0.3s ease;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.more-links {
+    display: flex;
+    gap: 8px;
+}
+
+.more-links:not([hidden]) {
+    display: flex;
+}
+
+.more-links[hidden] {
+    display: none;
+}
+
+.link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    background: var(--background-secondary);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.link-btn:hover {
+    background: var(--text-primary);
+    color: var(--background-primary);
+}
+
+/* App 展示 - 极简Apple风格 */
+.apps-showcase {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2xl);
+    flex-wrap: wrap;
+}
+
+.app-showcase-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-xl);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-showcase-card:hover {
+    transform: scale(1.02);
+}
+
+.app-visual {
+    margin-bottom: var(--space-lg);
+}
+
+.app-icon-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 28px;
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.04),
+        0 8px 24px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.app-showcase-card:hover .app-icon-img {
+    box-shadow: 
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        0 16px 40px rgba(0, 0, 0, 0.12);
+    transform: scale(1.02);
+}
+
+.app-content h3 {
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+}
+
+.app-subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    font-weight: 400;
+}
+
+.app-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--apple-black);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.app-link:hover {
+    color: var(--text-secondary);
+}
+
+.app-link-arrow {
+    transition: transform 0.2s ease;
+}
+
+.app-link:hover .app-link-arrow {
+    transform: translateX(3px);
+}
+
+/* 客户评价 - 苹果风格 */
+.testimonials {
+    background: var(--background-secondary);
+    padding: var(--space-3xl) 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-xl);
+}
+
+.testimonial-card {
+    background: var(--background-tertiary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-sm);
+    border: none;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.testimonial-text {
+    font-style: normal;
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+}
+
+.testimonial-text::before,
+.testimonial-text::after {
+    content: '"';
+    font-size: 48px;
+    color: var(--text-primary);
+    opacity: 0.08;
+    line-height: 1;
+    position: absolute;
+}
+
+.testimonial-text::before {
+    top: -20px;
+    left: -10px;
+}
+
+.testimonial-text::after {
+    bottom: -40px;
+    right: -10px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--apple-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+    font-size: 18px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.author-info h4 {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+    font-size: 16px;
+}
+
+.author-info p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* 关注我们 - Apple风格 */
+.media-qr-section {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--apple-light-gray);
+}
+
+.media-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+/* 二维码行 */
+.qr-row {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+}
+
+.qr-item {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.qr-item img,
+.qr-placeholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.qr-item img:hover,
+.qr-placeholder:hover {
+    transform: scale(1.02);
+}
+
+.qr-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff2442 0%, #ff6b7a 100%);
+}
+
+.qr-icon {
+    font-size: 40px;
+}
+
+.qr-item p {
+    margin-top: var(--space-sm);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+/* 平台链接行 - Apple风格 */
+.platform-links-row {
+    display: flex;
+    justify-content: center;
+}
+
+.platform-links-container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 24px;
+    padding: 6px;
+}
+
+.platform-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    border-radius: 18px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.platform-link:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.platform-icon {
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* 更多按钮 */
+.media-more-trigger {
+    background: var(--apple-black);
+    color: white;
+}
+
+.media-more-trigger:hover {
+    background: #333;
+}
+
+.media-more-trigger[aria-expanded="true"] {
+    background: var(--text-secondary);
+}
+
+.more-icon {
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.media-more-trigger[aria-expanded="true"] .more-icon {
+    transform: rotate(45deg);
+}
+
+/* 额外平台链接 - 横向展开动画 */
+.platform-links-extra {
+    display: flex;
+    gap: var(--space-xs);
+    overflow: hidden;
+    max-width: 0;
+    opacity: 0;
+    transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease;
+}
+
+.platform-links-extra:not([hidden]) {
+    max-width: 300px;
+    opacity: 1;
+}
+
+.platform-links-extra[hidden] {
+    display: flex;
+}
+
+/* 行动号召 - 苹果风格 */
+.cta {
+    text-align: center;
+    padding: var(--space-3xl) 0;
+    background: var(--background-primary);
+}
+
+.cta h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.cta p {
+    font-size: 18px;
+    margin-bottom: var(--space-xl);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 苹果风格按钮 */
+.btn {
+    padding: 12px 28px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 17px;
+    min-height: 44px;
+    min-width: 140px;
+    border: none;
+    outline: none;
+    letter-spacing: -0.01em;
+}
+
+.btn-primary {
+    background: var(--apple-accent);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background: #0077ed;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: var(--text-secondary);
+}
+
+.btn-secondary:active {
+    transform: scale(0.98);
+}
+
+/* 页脚 - 苹果风格 */
+footer {
+    background: var(--background-primary);
+    color: var(--text-secondary);
+    padding: var(--space-2xl) 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+
+.footer-brand {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.footer-brand p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: var(--space-sm);
+    max-width: 280px;
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--space-2xl);
+}
+
+.footer-link-group h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.01em;
+}
+
+.footer-link-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-link-group li {
+    margin-bottom: var(--space-sm);
+}
+
+.footer-link-group a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.footer-link-group a:hover {
+    color: var(--text-primary);
+}
+
+.footer-bottom {
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 性能优化 */
+body {
+    /* 减少重绘和重排 */
+    will-change: transform;
+}
+
+/* 平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 图片优化（如果将来添加图片） */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-md);
+}
+
+/* 减少布局抖动 */
+.container {
+    contain: layout style paint;
+}
+
+/* 焦点样式 - 苹果风格 */
+a:focus, button:focus {
+    outline: 2px solid var(--apple-black);
+    outline-offset: 2px;
+    border-radius: var(--radius-md);
+}
+
+/* 加载动画 - 苹果风格 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-card, .testimonial-card {
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+
+.testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+.testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+.testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* 悬停效果增强 */
+@media (hover: hover) {
+    .service-card:hover,
+    .testimonial-card:hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+/* 触摸设备优化 */
+@media (pointer: coarse) {
+    .btn {
+        min-height: 48px;
+        min-width: 140px;
+    }
+}
+
+/* 返回顶部按钮 - 苹果风格 */
+.back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 52px;
+    height: 52px;
+    background: var(--apple-black);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top:focus {
+    outline: 2px solid var(--apple-black);
+    outline-offset: 4px;
+}
+
+/* 深色模式切换按钮 - 苹果风格太阳/月亮图标 */
+.theme-toggle {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0;
+}
+
+.theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.theme-toggle:active {
+    transform: scale(0.92);
+}
+
+.theme-toggle:focus {
+    outline: none;
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+    font-size: 20px;
+    line-height: 1;
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle .icon-moon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+}
+
+.theme-toggle.dark .icon-sun {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+}
+
+.theme-toggle.dark .icon-moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+@media (prefers-color-scheme: dark) {
+    .theme-toggle .icon-sun {
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.5);
+    }
+    
+    .theme-toggle .icon-moon {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+    
+    .theme-toggle.dark .icon-sun {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+    
+    .theme-toggle.dark .icon-moon {
+        opacity: 0;
+        transform: rotate(90deg) scale(0.5);
+    }
+}
+
+/* 滚动进度条 */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--apple-black);
+    width: 0%;
+    z-index: 1001;
+    transition: width 0.1s ease-out;
+}
+
+/* 导航栏滚动效果 */
+header.scrolled {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+}
+
+@media (prefers-color-scheme: dark) {
+    header.scrolled {
+        background: rgba(0, 0, 0, 0.85);
+    }
+}
+
+/* 组合区域 - 够酷APP和Awesome Agent并排显示 */
+.combined-section {
+    padding: var(--space-3xl) 0;
+}
+
+.combined-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+}
+
+.combined-content .module-section {
+    padding: 0;
+    border-bottom: none;
+}
+
+.combined-content .module-section:not(:last-child) {
+    border-right: 1px solid var(--border-color);
+    padding-right: var(--space-2xl);
+}
+
+/* 移动端响应式 */
+@media (max-width: 900px) {
+    .combined-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-3xl);
+    }
+    
+    .combined-content .module-section:not(:last-child) {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: var(--space-3xl);
+    }
+}
