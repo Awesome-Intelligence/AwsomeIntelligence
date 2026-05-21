@@ -36,13 +36,17 @@
     --apple-dark-gray: #1d1d1f;
     --apple-black: #000000;
     --apple-white: #ffffff;
+
     --apple-accent: #0071e3;
+
     
     /* 背景色 */
     --background-primary: var(--apple-white);
     --background-secondary: var(--apple-light-gray);
     --background-tertiary: #ffffff;
+
     --background-card: rgba(255, 255, 255, 0.85);
+
     
     /* 文字颜色 */
     --text-primary: var(--apple-black);
@@ -50,19 +54,23 @@
     --text-tertiary: #6e6e73;
     
     /* 边框和分割线 */
+
     --border-color: rgba(0, 0, 0, 0.08);
     
     /* 阴影 - 更柔和的苹果风格 */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
     --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.08);
+
     
     /* 圆角 */
     --radius-sm: 8px;
     --radius-md: 12px;
+
     --radius-lg: 20px;
     --radius-xl: 28px;
     --radius-full: 9999px;
+
     
     /* 间距系统 */
     --space-xs: 4px;
@@ -78,6 +86,7 @@
     --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 /* 深色模式支持 */
@@ -132,7 +141,9 @@ header {
     padding: var(--space-md) 0;
     max-width: 1200px;
     margin: 0 auto;
+
     gap: var(--space-xl);
+
 }
 
 .logo {
@@ -142,7 +153,9 @@ header {
     text-decoration: none;
     letter-spacing: -0.02em;
     transition: color 0.2s ease;
+
     flex-shrink: 0;
+
 }
 
 .logo:hover {
@@ -151,9 +164,11 @@ header {
 
 .nav-links {
     display: flex;
+
     align-items: center;
     gap: var(--space-lg);
     flex-wrap: wrap;
+
 }
 
 .nav-links a {
@@ -163,8 +178,10 @@ header {
     font-size: 15px;
     transition: all 0.2s ease;
     position: relative;
+
     white-space: nowrap;
     padding: 4px 0;
+
 }
 
 .nav-links a:hover {
@@ -174,17 +191,20 @@ header {
 .nav-links a::after {
     content: '';
     position: absolute;
+
     bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
     background: var(--apple-black);
+
     transition: width 0.2s ease;
 }
 
 .nav-links a:hover::after {
     width: 100%;
 }
+
 
 .header-actions {
     display: flex;
@@ -193,6 +213,7 @@ header {
     flex-shrink: 0;
     min-width: 50px;
 }
+
 
 /* 英雄区域 - 苹果风格 */
 .hero {
@@ -268,15 +289,18 @@ header {
     background: var(--background-tertiary);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
+
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-normal);
     border: none;
+
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 }
 
 .service-card:hover {
     transform: translateY(-4px);
+
     box-shadow: var(--shadow-md);
 }
 
@@ -287,6 +311,7 @@ header {
 
 .service-card-link:hover {
     background: rgba(0, 0, 0, 0.02);
+
 }
 
 .service-card h3 {
@@ -528,6 +553,7 @@ header {
     color: var(--background-primary);
 }
 
+
 /* App 展示 - 极简Apple风格 */
 .apps-showcase {
     display: flex;
@@ -624,8 +650,10 @@ header {
     background: var(--background-tertiary);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
+
     box-shadow: var(--shadow-sm);
     border: none;
+
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 }
@@ -644,8 +672,10 @@ header {
 .testimonial-text::after {
     content: '"';
     font-size: 48px;
+
     color: var(--text-primary);
     opacity: 0.08;
+
     line-height: 1;
     position: absolute;
 }
@@ -869,11 +899,13 @@ header {
 
 /* 苹果风格按钮 */
 .btn {
+
     padding: 12px 28px;
     border-radius: var(--radius-full);
     font-weight: 600;
     text-decoration: none;
     transition: all var(--transition-fast);
+
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -881,6 +913,7 @@ header {
     text-align: center;
     font-size: 17px;
     min-height: 44px;
+
     min-width: 140px;
     border: none;
     outline: none;
@@ -900,10 +933,12 @@ header {
 
 .btn-primary:active {
     transform: scale(0.98);
+
 }
 
 .btn-secondary {
     background: transparent;
+
     color: var(--text-primary);
     border: 2px solid var(--border-color);
 }
@@ -915,6 +950,7 @@ header {
 
 .btn-secondary:active {
     transform: scale(0.98);
+
 }
 
 /* 页脚 - 苹果风格 */
@@ -1184,6 +1220,8 @@ a:focus, button:focus {
         opacity: 0;
         transform: rotate(90deg) scale(0.5);
     }
+
+    
 }
 
 /* 滚动进度条 */
@@ -1208,6 +1246,7 @@ header.scrolled {
     header.scrolled {
         background: rgba(0, 0, 0, 0.85);
     }
+
 }
 
 /* 组合区域 - 够酷APP和Awesome Agent并排显示 */
@@ -1244,4 +1283,5 @@ header.scrolled {
         border-bottom: 1px solid var(--border-color);
         padding-bottom: var(--space-3xl);
     }
+
 }
