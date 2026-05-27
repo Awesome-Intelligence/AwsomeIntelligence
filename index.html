@@ -97,15 +97,19 @@
     <header role="banner">
         <div class="container header-container">
             <a href="#" class="logo" aria-label="返回首页">AI不够酷</a>
-            <button class="mobile-menu-button" aria-label="切换导航菜单" aria-expanded="false">☰</button>
             <nav class="nav-links" role="navigation" aria-label="主导航">
                 <a href="#ai-media">科技媒体</a>
                 <a href="#ai-applications">够酷APP</a>
-                <a href="#agent">Awsome Agent</a>
+                <a href="#agent">Awesome Agent</a>
                 <a href="#testimonials">客户评价</a>
                 <a href="#contact">联系</a>
-                <button class="theme-toggle" aria-label="切换深色模式" title="切换深色模式"></button>
             </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="切换深色模式" title="切换深色模式">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -127,60 +131,68 @@
                     <p>打造AI领域的权威媒体平台，连接技术与商业</p>
                 </div>
                 
-                <div class="services-grid">
-                    <article class="service-card" role="article">
-                        <h3>科技媒体</h3>
-                        <p>创立于2024年1月，目前已与国内外200+知名大厂、AI独角兽、AI社区展开密切合作。目前公众号粉丝数12w+，社群总人数3w+, Agent开发者占比40%左右。</p>
-                    </article>
-                    <article class="service-card" role="article">
-                        <h3>行业研究</h3>
-                        <p>季度性AI行业研究报告，覆盖10+ AI领域，100+ AI企业，1000+ AI人物，10000+ AI事件。为AI企业、AI人才、AI投资者提供最全面的行业信息。</p>
-                    </article>
-                    <article class="service-card" role="article">
-                        <h3>知识共学</h3>
-                        <p>建设多个垂直领域知识库，覆盖AI Agent、AI产品、商业应用等多个方向。不定期组织线上/线下技术沙龙、WorkShop，打造高质量AI社区，促进知识分享与项目合作。</p>
-                    </article>
-                </div>
-
-                <!-- 关注我们 -->
-                <div class="media-qr-section" aria-labelledby="media-qr-heading">
-                    <div class="media-layout">
-                        <!-- 二维码展示行 -->
-                        <div class="qr-row">
-                            <div class="qr-item">
-                                <img src="images/wechat-official-account.jpg" alt="AI不够酷公众号二维码" loading="lazy">
-                                <p>公众号</p>
+                <div class="media-grid">
+                    <article class="media-card" role="article">
+                        <div class="media-card-icon">📰</div>
+                        <div class="media-card-content">
+                            <h3>媒体矩阵</h3>
+                            <div class="media-stats">
+                                <span class="stat"><strong>12w+</strong> 公众号粉丝</span>
+                                <span class="stat"><strong>3w+</strong> 社群成员</span>
+                                <span class="stat"><strong>200+</strong> 合作伙伴</span>
                             </div>
-                            <div class="qr-item">
-                                <img src="images/wechat-channel.jpg" alt="AI不够酷视频号二维码" loading="lazy">
-                                <p>视频号</p>
-                            </div>
-                            <div class="qr-item">
-                                <img src="images/xiaohongshu-qr.png" alt="AI不够酷小红书二维码" loading="lazy">
-                                <p>小红书</p>
-                            </div>
+                            <p>创立于2024年1月，与国内外知名大厂、AI独角兽、AI社区展开密切合作</p>
                         </div>
-                        
-                        <!-- 平台链接行 -->
-                        <div class="platform-links-row">
-                            <div class="platform-links-container">
-                                <div id="media-more-content" class="platform-links-extra" hidden>
-                                    <a href="https://blog.csdn.net/zlt501962603" class="platform-link" target="_blank" rel="noopener noreferrer">
-                                        <span class="platform-icon">📝</span>
-                                        <span>CSDN</span>
-                                    </a>
-                                    <a href="https://www.zhihu.com/people/jablack" class="platform-link" target="_blank" rel="noopener noreferrer">
-                                        <span class="platform-icon">🧠</span>
-                                        <span>知乎</span>
-                                    </a>
+                    </article>
+                    
+                    <article class="media-card" role="article">
+                        <div class="media-card-icon">📊</div>
+                        <div class="media-card-content">
+                            <h3>行业研究</h3>
+                            <div class="media-stats">
+                                <span class="stat"><strong>10+</strong> AI领域</span>
+                                <span class="stat"><strong>100+</strong> AI企业</span>
+                                <span class="stat"><strong>1000+</strong> AI人物</span>
+                            </div>
+                            <p>季度性AI行业研究报告，为AI企业、人才、投资者提供最全面的行业信息</p>
+                        </div>
+                    </article>
+                    
+                    <article class="media-card" role="article">
+                        <div class="media-card-icon">📚</div>
+                        <div class="media-card-content">
+                            <h3>知识共学</h3>
+                            <div class="media-stats">
+                                <span class="stat">AI Agent</span>
+                                <span class="stat">AI产品</span>
+                                <span class="stat">商业应用</span>
+                            </div>
+                            <p>建设垂直领域知识库，不定期组织线上/线下技术沙龙和WorkShop</p>
+                        </div>
+                    </article>
+                    
+                    <article class="media-card media-card-highlight" role="article">
+                        <div class="media-card-icon">🌐</div>
+                        <div class="media-card-content">
+                            <h3>关注我们</h3>
+                            <p>扫码/点击关注，获取更多AI资讯</p>
+                            <div class="social-grid">
+                                <div class="qr-row">
+                                    <div class="qr-item"><img src="images/wechat-official-account.jpg" alt="公众号" loading="lazy"><span>公众号</span></div>
+                                    <div class="qr-item"><img src="images/wechat-channel.jpg" alt="视频号" loading="lazy"><span>视频号</span></div>
+                                    <div class="qr-item"><img src="images/xiaohongshu-qr.png" alt="小红书" loading="lazy"><span>小红书</span></div>
+                                    <button id="social-more-btn" class="more-btn" aria-expanded="false">
+                                        <span class="more-icon">+</span>
+                                    </button>
                                 </div>
-                                <button id="media-more-btn" class="platform-link media-more-trigger" aria-expanded="false" aria-label="展开更多平台">
-                                    <span class="platform-icon more-icon">+</span>
-                                    <span>更多</span>
-                                </button>
+                                <div id="social-more-content" class="social-links-extra" hidden>
+                                    <a href="https://blog.csdn.net/zlt501962603" class="social-link" target="_blank" rel="noopener noreferrer">📝 CSDN</a>
+                                    <a href="https://www.zhihu.com/people/jablack" class="social-link" target="_blank" rel="noopener noreferrer">🧠 知乎</a>
+                                    <a href="https://space.bilibili.com/你的ID" class="social-link" target="_blank" rel="noopener noreferrer">📺 B站</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -223,19 +235,19 @@
             </div>
         </section>
 
-        <!-- Awsome Agent 模块 -->
+        <!-- Awesome Agent 模块 -->
         <section class="module-section" id="agent" aria-labelledby="agent-heading">
             <div class="container">
                 <div class="section-title">
-                    <h2 id="agent-heading">Awsome Agent</h2>
-                    <p>下一代智能体平台，灵感源于 OpenClaw</p>
+                    <h2 id="agent-heading">Awesome Agent</h2>
+                    <p>下一代智能体平台</p>
                 </div>
                 
                 <div class="services-grid two-cards">
-                    <article class="service-card" role="article">
-                        <h3>Awsome Agent</h3>
-                        <p>正在打造的一款全新 Agent 平台，灵感源于 OpenClaw。致力于构建真正自主决策、可扩展、易协作的智能体系统，让 AI 从工具进化为伙伴。</p>
-                    </article>
+                    <a href="https://github.com/zackal007/Awesome-Agent" target="_blank" rel="noopener noreferrer" class="service-card service-card-link" role="article">
+                        <h3>Awesome Agent</h3>
+                        <p>正在打造的一款全新 Agent 平台，致力于构建真正自主决策、可扩展、易协作的智能体系统，让 AI 从工具进化为伙伴。</p>
+                    </a>
                     <article class="service-card" role="article">
                         <h3>Agent 安全</h3>
                         <p>专注于 Agent 系统的安全防护与风险管控。从权限隔离、行为审计到异常检测，为智能体应用构建全方位的安全防线，确保 AI 可控可信。</p>

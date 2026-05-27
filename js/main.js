@@ -16,19 +16,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 社交媒体"更多"按钮功能 - Apple风格横向展开
-    const mediaMoreBtn = document.getElementById('media-more-btn');
-    const mediaMoreContent = document.getElementById('media-more-content');
+    // 社交媒体"更多"按钮功能
+    const socialMoreBtn = document.getElementById('social-more-btn');
+    const socialMoreContent = document.getElementById('social-more-content');
     
-    if (mediaMoreBtn && mediaMoreContent) {
-        mediaMoreBtn.addEventListener('click', function() {
+    if (socialMoreBtn && socialMoreContent) {
+        socialMoreBtn.addEventListener('click', function() {
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
             this.setAttribute('aria-expanded', !isExpanded);
             
             if (isExpanded) {
-                mediaMoreContent.setAttribute('hidden', '');
+                socialMoreContent.setAttribute('hidden', '');
             } else {
-                mediaMoreContent.removeAttribute('hidden');
+                socialMoreContent.removeAttribute('hidden');
             }
         });
     }
@@ -93,38 +93,54 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.querySelector('.theme-toggle');
     
     if (themeToggle) {
-        const storedTheme = localStorage.getItem('theme') || 'light';
+        const storedTheme = localStorage.getItem('theme');
         const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         
-        if (storedTheme === 'dark' || (storedTheme === 'system' && systemDark)) {
+        // 检查是否有保存的主题设置
+        let isDark = false;
+        if (storedTheme === 'dark') {
+            isDark = true;
+        } else if (storedTheme === 'light') {
+            isDark = false;
+        } else {
+            // 没有保存的设置，使用系统偏好
+            isDark = systemDark;
+        }
+        
+        // 初始化主题状态
+        if (isDark) {
             document.documentElement.classList.add('dark');
             themeToggle.classList.add('dark');
+            applyDarkMode(true);
         }
 
         themeToggle.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.toggle('dark');
+            isDark = document.documentElement.classList.toggle('dark');
             themeToggle.classList.toggle('dark');
             
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            
-            if (isDark) {
-                document.documentElement.style.setProperty('--background-primary', '#000000');
-                document.documentElement.style.setProperty('--background-secondary', '#121212');
-                document.documentElement.style.setProperty('--background-tertiary', '#1c1c1e');
-                document.documentElement.style.setProperty('--text-primary', '#ffffff');
-                document.documentElement.style.setProperty('--text-secondary', '#aeaeb2');
-                document.documentElement.style.setProperty('--text-tertiary', '#8e8e93');
-                document.documentElement.style.setProperty('--border-color', '#3a3a3c');
-            } else {
-                document.documentElement.style.setProperty('--background-primary', '#ffffff');
-                document.documentElement.style.setProperty('--background-secondary', '#f5f5f7');
-                document.documentElement.style.setProperty('--background-tertiary', '#ffffff');
-                document.documentElement.style.setProperty('--text-primary', '#000000');
-                document.documentElement.style.setProperty('--text-secondary', '#86868b');
-                document.documentElement.style.setProperty('--text-tertiary', '#6e6e73');
-                document.documentElement.style.setProperty('--border-color', '#d2d2d7');
-            }
+            applyDarkMode(isDark);
         });
+    }
+    
+    function applyDarkMode(isDark) {
+        if (isDark) {
+            document.documentElement.style.setProperty('--background-primary', '#000000');
+            document.documentElement.style.setProperty('--background-secondary', '#121212');
+            document.documentElement.style.setProperty('--background-tertiary', '#1c1c1e');
+            document.documentElement.style.setProperty('--text-primary', '#ffffff');
+            document.documentElement.style.setProperty('--text-secondary', '#aeaeb2');
+            document.documentElement.style.setProperty('--text-tertiary', '#8e8e93');
+            document.documentElement.style.setProperty('--border-color', '#3a3a3c');
+        } else {
+            document.documentElement.style.setProperty('--background-primary', '#ffffff');
+            document.documentElement.style.setProperty('--background-secondary', '#f5f5f7');
+            document.documentElement.style.setProperty('--background-tertiary', '#ffffff');
+            document.documentElement.style.setProperty('--text-primary', '#000000');
+            document.documentElement.style.setProperty('--text-secondary', '#86868b');
+            document.documentElement.style.setProperty('--text-tertiary', '#6e6e73');
+            document.documentElement.style.setProperty('--border-color', '#d2d2d7');
+        }
     }
 
     // 页面加载动画
