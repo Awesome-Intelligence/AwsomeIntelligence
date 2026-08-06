@@ -98,18 +98,11 @@
         <div class="container header-container">
             <a href="#" class="logo" aria-label="返回首页">AI不够酷</a>
             <nav class="nav-links" role="navigation" aria-label="主导航">
-                <a href="#ai-media">科技媒体</a>
+                <a href="#agent">Agent Universe</a>
                 <a href="#ai-applications">够酷APP</a>
-                <a href="#agent">Awesome Agent</a>
-                <a href="#testimonials">客户评价</a>
+                <a href="#ai-media">科技媒体</a>
                 <a href="#contact">联系</a>
             </nav>
-            <div class="header-actions">
-                <button class="theme-toggle" aria-label="切换深色模式" title="切换深色模式">
-                    <span class="icon-sun">☀️</span>
-                    <span class="icon-moon">🌙</span>
-                </button>
-            </div>
         </div>
     </header>
 
@@ -123,75 +116,34 @@
 
     <!-- 主要内容 -->
     <main id="main-content" class="main-content" role="main">
-        <!-- 科技媒体模块 -->
-        <section class="module-section" id="ai-media" aria-labelledby="ai-media-heading">
+        <!-- Agent Universe 模块 -->
+        <section class="module-section" id="agent" aria-labelledby="agent-heading">
             <div class="container">
                 <div class="section-title">
-                    <h2 id="ai-media-heading">科技媒体</h2>
-                    <p>打造AI领域的权威媒体平台，连接技术与商业</p>
+                    <h2 id="agent-heading">Agent Universe</h2>
+                    <p>AI 智能体产品矩阵</p>
                 </div>
-                
-                <div class="media-grid">
-                    <article class="media-card" role="article">
-                        <div class="media-card-icon">📰</div>
-                        <div class="media-card-content">
-                            <h3>媒体矩阵</h3>
-                            <div class="media-stats">
-                                <span class="stat"><strong>12w+</strong> 公众号粉丝</span>
-                                <span class="stat"><strong>3w+</strong> 社群成员</span>
-                                <span class="stat"><strong>200+</strong> 合作伙伴</span>
-                            </div>
-                            <p>创立于2024年1月，与国内外知名大厂、AI独角兽、AI社区展开密切合作</p>
+
+                <div class="services-grid">
+                    <article class="service-card service-card-feature" role="article">
+                        <h3>Agent-Z</h3>
+                        <p>企业级 AI Agent 系统，构建真正自主决策、自我进化的智能体生态，让 AI 从工具进化为伙伴。</p>
+                        <div class="repo-links">
+                            <a href="https://agentz.top" target="_blank" rel="noopener noreferrer" class="repo-link repo-link-home">
+                                主页 <span class="repo-link-arrow">→</span>
+                            </a>
+                            <a href="https://github.com/Awesome-Intelligence/Agent-Z" target="_blank" rel="noopener noreferrer" class="repo-link repo-link-github">
+                                GitHub <span class="repo-link-arrow">→</span>
+                            </a>
+                            <a href="https://gitee.com/awesome-intelligence/agent-z" target="_blank" rel="noopener noreferrer" class="repo-link repo-link-gitee">
+                                Gitee <span class="repo-link-arrow">→</span>
+                            </a>
                         </div>
                     </article>
-                    
-                    <article class="media-card" role="article">
-                        <div class="media-card-icon">📊</div>
-                        <div class="media-card-content">
-                            <h3>行业研究</h3>
-                            <div class="media-stats">
-                                <span class="stat"><strong>10+</strong> AI领域</span>
-                                <span class="stat"><strong>100+</strong> AI企业</span>
-                                <span class="stat"><strong>1000+</strong> AI人物</span>
-                            </div>
-                            <p>季度性AI行业研究报告，为AI企业、人才、投资者提供最全面的行业信息</p>
-                        </div>
-                    </article>
-                    
-                    <article class="media-card" role="article">
-                        <div class="media-card-icon">📚</div>
-                        <div class="media-card-content">
-                            <h3>知识共学</h3>
-                            <div class="media-stats">
-                                <span class="stat">AI Agent</span>
-                                <span class="stat">AI产品</span>
-                                <span class="stat">商业应用</span>
-                            </div>
-                            <p>建设垂直领域知识库，不定期组织线上/线下技术沙龙和WorkShop</p>
-                        </div>
-                    </article>
-                    
-                    <article class="media-card media-card-highlight" role="article">
-                        <div class="media-card-icon">🌐</div>
-                        <div class="media-card-content">
-                            <h3>关注我们</h3>
-                            <p>扫码/点击关注，获取更多AI资讯</p>
-                            <div class="social-grid">
-                                <div class="qr-row">
-                                    <div class="qr-item"><img src="images/wechat-official-account.jpg" alt="公众号" loading="lazy"><span>公众号</span></div>
-                                    <div class="qr-item"><img src="images/wechat-channel.jpg" alt="视频号" loading="lazy"><span>视频号</span></div>
-                                    <div class="qr-item"><img src="images/xiaohongshu-qr.png" alt="小红书" loading="lazy"><span>小红书</span></div>
-                                    <button id="social-more-btn" class="more-btn" aria-expanded="false">
-                                        <span class="more-icon">+</span>
-                                    </button>
-                                </div>
-                                <div id="social-more-content" class="social-links-extra" hidden>
-                                    <a href="https://blog.csdn.net/zlt501962603" class="social-link" target="_blank" rel="noopener noreferrer">📝 CSDN</a>
-                                    <a href="https://www.zhihu.com/people/jablack" class="social-link" target="_blank" rel="noopener noreferrer">🧠 知乎</a>
-                                    <a href="https://space.bilibili.com/你的ID" class="social-link" target="_blank" rel="noopener noreferrer">📺 B站</a>
-                                </div>
-                            </div>
-                        </div>
+                    <article class="service-card service-card-coming-soon" role="article">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <h3>Agent Zoo</h3>
+                        <p>全新的智能体产品，正在孕育中。</p>
                     </article>
                 </div>
             </div>
@@ -204,7 +156,7 @@
                     <h2 id="ai-applications-heading">够酷APP</h2>
                     <p>自研产品，用AI技术解决真实问题</p>
                 </div>
-                
+
                 <div class="apps-showcase">
                     <article class="app-showcase-card" role="article">
                         <div class="app-visual">
@@ -218,7 +170,7 @@
                             </a>
                         </div>
                     </article>
-                    
+
                     <article class="app-showcase-card" role="article">
                         <div class="app-visual">
                             <img src="images/app-whererer.png" alt="Whererer App 图标" class="app-icon-img" loading="lazy">
@@ -235,86 +187,71 @@
             </div>
         </section>
 
-        <!-- Awesome Agent 模块 -->
-        <section class="module-section" id="agent" aria-labelledby="agent-heading">
+        <!-- 科技媒体模块 -->
+        <section class="module-section" id="ai-media" aria-labelledby="ai-media-heading">
             <div class="container">
                 <div class="section-title">
-                    <h2 id="agent-heading">Awesome Agent</h2>
-                    <p>下一代智能体平台</p>
+                    <h2 id="ai-media-heading">科技媒体</h2>
+                    <p>打造AI领域的权威媒体平台，连接技术与商业</p>
                 </div>
-                
-                <div class="services-grid two-cards">
-                    <a href="https://github.com/zackal007/Awesome-Agent" target="_blank" rel="noopener noreferrer" class="service-card service-card-link" role="article">
-                        <h3>Awesome Agent</h3>
-                        <p>正在打造的一款全新 Agent 平台，致力于构建真正自主决策、可扩展、易协作的智能体系统，让 AI 从工具进化为伙伴。</p>
-                    </a>
-                    <article class="service-card" role="article">
-                        <h3>Agent 安全</h3>
-                        <p>专注于 Agent 系统的安全防护与风险管控。从权限隔离、行为审计到异常检测，为智能体应用构建全方位的安全防线，确保 AI 可控可信。</p>
+
+                <div class="media-grid">
+                    <article class="media-card media-card-qr" role="article">
+                        <div class="media-card-content">
+                            <div class="qr-item">
+                                <img src="images/wechat-official-account.jpg" alt="微信公众号二维码" loading="lazy">
+                                <span>扫码关注</span>
+                            </div>
+                            <h3>微信公众号</h3>
+                            <p>AI 不够酷 官方公众号，获取最新AI资讯</p>
+                        </div>
+                    </article>
+
+                    <article class="media-card media-card-qr" role="article">
+                        <div class="media-card-content">
+                            <div class="qr-item">
+                                <img src="images/wechat-channel.jpg" alt="视频号二维码" loading="lazy">
+                                <span>扫码关注</span>
+                            </div>
+                            <h3>视频号</h3>
+                            <p>AI 不够酷 视频号，AI 短视频内容</p>
+                        </div>
+                    </article>
+
+                    <article class="media-card media-card-qr" role="article">
+                        <div class="media-card-content">
+                            <div class="qr-item">
+                                <img src="images/xiaohongshu-qr.png" alt="小红书二维码" loading="lazy">
+                                <span>扫码关注</span>
+                            </div>
+                            <h3>小红书</h3>
+                            <p>AI 不够酷 小红书账号，AI 产品深度体验</p>
+                        </div>
+                    </article>
+
+                    <article class="media-card" role="article">
+                        <div class="media-card-icon">🔗</div>
+                        <div class="media-card-content">
+                            <h3>技术社区</h3>
+                            <p>在各大技术平台关注我们，获取深度技术内容</p>
+                            <div class="social-links" style="margin-top: var(--space-md);">
+                                <a href="https://blog.csdn.net/zlt501962603" class="social-link" target="_blank" rel="noopener noreferrer">📝 CSDN</a>
+                                <a href="https://www.zhihu.com/people/jablack" class="social-link" target="_blank" rel="noopener noreferrer">🧠 知乎</a>
+                                <a href="https://space.bilibili.com/你的ID" class="social-link" target="_blank" rel="noopener noreferrer">🎬 B站</a>
+                            </div>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <!-- 客户评价 -->
-    <section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
-        <div class="container">
-            <div class="section-title">
-                <h2 id="testimonials-heading">客户评价</h2>
-                <p>来自我们客户的真实反馈</p>
-            </div>
-
-            <div class="testimonials-grid" role="region">
-                <article class="testimonial-card" role="article">
-                    <blockquote class="testimonial-text">
-                        <p>“The AI-powered analytics dashboard revolutionized our decision-making process. It's intuitive, fast, and provides insights we never knew we needed. Absolutely game-changing for our business!”</p>
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" aria-hidden="true">E</div>
-                        <div class="author-info">
-                            <h4>Emily Chen</h4>
-                            <p>@emilychen_tech</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="testimonial-card" role="article">
-                    <blockquote class="testimonial-text">
-                        <p>“I was skeptical about AI tools, but this platform changed my mind. The natural language processing capabilities are remarkable. It's like having a brilliant assistant always at your fingertips.”</p>
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" aria-hidden="true">M</div>
-                        <div class="author-info">
-                            <h4>Marcus Johnson</h4>
-                            <p>@marcusj_ai</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="testimonial-card" role="article">
-                    <blockquote class="testimonial-text">
-                        <p>“As a small business owner, I thought advanced AI was out of reach. This solution proved me wrong. It's affordable, scalable, and has dramatically improved our customer service efficiency.”</p>
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" aria-hidden="true">S</div>
-                        <div class="author-info">
-                            <h4>Sarah Thompson</h4>
-                            <p>@sarahT_biz</p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- 行动号召 -->
+    <!-- 联系我们 -->
     <section class="cta" id="contact" aria-labelledby="cta-heading">
         <div class="container">
             <h2 id="cta-heading">想要快速构建你的智能体？</h2>
-            <p>开始免费构建，立即体验差异。</p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">免费开始</a>
-                <a href="#" class="btn btn-secondary">查看文档</a>
-            </div>
+            <p>欢迎联系我们，一起探讨合作与定制化方案。</p>
         </div>
     </section>
 
@@ -333,9 +270,9 @@
                     <div class="footer-link-group">
                         <h4>产品</h4>
                         <ul>
-                            <li><a href="#ai-media">科技媒体</a></li>
+                            <li><a href="#agent">Agent Universe</a></li>
                             <li><a href="#ai-applications">够酷APP</a></li>
-                            <li><a href="#agent">Awsome Agent</a></li>
+                            <li><a href="#ai-media">科技媒体</a></li>
                         </ul>
                     </div>
                     <div class="footer-link-group">

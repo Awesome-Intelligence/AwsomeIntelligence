@@ -49,7 +49,11 @@
     
     /* 边框和分割线 */
     --border-color: #d2d2d7;
-    
+
+    /* 磨砂玻璃半透明背景（呼应 logo 绿色透出） */
+    --bg-glass-section: rgba(255, 255, 255, 0.35);
+    --bg-glass-card: rgba(255, 255, 255, 0.55);
+
     /* 阴影 */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -82,6 +86,18 @@
         --text-secondary: #aeaeb2;
         --text-tertiary: #8e8e93;
         --border-color: #3a3a3c;
+        /* 磨砂玻璃半透明背景（深色模式） */
+        --bg-glass-section: rgba(28, 28, 30, 0.55);
+        --bg-glass-card: rgba(28, 28, 30, 0.70);
+    }
+    /* 深色模式：绿色光晕略减淡，磨砂层改用半透明黑 */
+    body {
+        background-image:
+            radial-gradient(circle at 15% 15%, rgba(160, 240, 96, 0.07) 0%, transparent 45%),
+            radial-gradient(circle at 85% 70%, rgba(160, 240, 96, 0.05) 0%, transparent 50%);
+    }
+    body::before {
+        background: rgba(0, 0, 0, 0.35);
     }
 }
 
@@ -93,8 +109,25 @@ body {
     line-height: 1.4;
     color: var(--text-primary);
     background-color: var(--background-primary);
+    /* 淡绿色径向光晕：呼应 logo 主色 rgb(160,240,96) */
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(160, 240, 96, 0.10) 0%, transparent 45%),
+        radial-gradient(circle at 85% 70%, rgba(160, 240, 96, 0.08) 0%, transparent 50%);
+    background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* 全页磨砂玻璃层：柔化底层绿色光晕，形成朦胧质感 */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(50px) saturate(160%);
+    -webkit-backdrop-filter: blur(50px) saturate(160%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* 容器 */
@@ -107,14 +140,11 @@ body {
 
 /* 头部导航 - 苹果风格 */
 header {
-    background-color: var(--background-primary);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border-color);
+    background-color: #000000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: all 0.3s ease;
 }
 
 .header-container {
@@ -130,7 +160,7 @@ header {
 .logo {
     font-size: 20px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--apple-white);
     text-decoration: none;
     letter-spacing: -0.02em;
     transition: color 0.2s ease;
@@ -138,7 +168,7 @@ header {
 }
 
 .logo:hover {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .nav-links {
@@ -150,7 +180,7 @@ header {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     font-weight: 500;
     font-size: 15px;
     transition: all 0.2s ease;
@@ -160,7 +190,7 @@ header {
 }
 
 .nav-links a:hover {
-    color: var(--text-primary);
+    color: var(--apple-white);
 }
 
 .nav-links a::after {
@@ -170,7 +200,7 @@ header {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--apple-black);
+    background: var(--apple-white);
     transition: width 0.2s ease;
 }
 
@@ -178,19 +208,11 @@ header {
     width: 100%;
 }
 
-.header-actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-shrink: 0;
-    min-width: 50px;
-}
-
 /* 英雄区域 - 苹果风格 */
 .hero {
     padding: var(--space-4xl) 0 var(--space-3xl);
     text-align: center;
-    background: var(--background-primary);
+    background: var(--bg-glass-section);
 }
 
 .hero h1 {
@@ -257,7 +279,7 @@ header {
 }
 
 .service-card {
-    background: var(--background-tertiary);
+    background: var(--bg-glass-card);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
     box-shadow: var(--shadow-md);
@@ -305,7 +327,7 @@ header {
 }
 
 .media-card {
-    background: var(--background-tertiary);
+    background: var(--bg-glass-card);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
     box-shadow: var(--shadow-sm);
@@ -346,98 +368,35 @@ header {
     margin-top: var(--space-sm);
 }
 
-.media-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    margin: var(--space-sm) 0;
+/* 科技媒体 - QR 卡片样式 */
+.media-card-qr .media-card-content {
+    text-align: center;
 }
 
-.media-stats .stat {
-    font-size: 13px;
-    color: var(--text-tertiary);
-    background: var(--background-secondary);
-    padding: 4px 10px;
-    border-radius: 12px;
+.media-card-qr .qr-item {
+    margin: 0 auto 12px;
 }
 
-.media-stats .stat strong {
-    color: var(--text-primary);
-    font-weight: 600;
+.media-card-qr h3,
+.media-card-qr p {
+    text-align: center;
 }
 
-.media-card-highlight {
-    background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
-    border-color: rgba(0, 0, 0, 0.08);
-}
-
-@media (prefers-color-scheme: dark) {
-    .media-card-highlight {
-        background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
-    }
-}
-
-.qr-small-row {
-    display: flex;
-    gap: var(--space-md);
-    margin-top: var(--space-md);
-}
-
-.qr-small-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-}
-
-.qr-small-item img {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.qr-small-item span {
-    font-size: 11px;
-    color: var(--text-tertiary);
-}
-
-.social-grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    margin-top: var(--space-md);
-}
-
-.qr-list {
-    display: flex;
-    gap: var(--space-md);
-}
-
-.qr-row {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-md);
-}
-
-.qr-list .qr-item,
-.qr-row .qr-item {
+.qr-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 6px;
 }
 
-.qr-list .qr-item img,
-.qr-row .qr-item img {
+.qr-item img {
     width: 60px;
     height: 60px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.qr-list .qr-item span,
-.qr-row .qr-item span {
+.qr-item span {
     font-size: 12px;
     color: var(--text-tertiary);
 }
@@ -466,61 +425,6 @@ header {
     background: var(--text-primary);
     color: var(--background-primary);
     transform: translateY(-1px);
-}
-
-.social-links-extra {
-    display: flex;
-    gap: var(--space-sm);
-    flex-wrap: wrap;
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
-    margin: 0;
-}
-
-.social-links-extra:not([hidden]) {
-    max-height: 60px;
-    opacity: 1;
-    margin-top: var(--space-md);
-}
-
-.social-links-extra[hidden] {
-    display: flex;
-}
-
-.more-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    background: var(--background-secondary);
-    color: var(--text-secondary);
-    border: none;
-    border-radius: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.more-btn:hover {
-    background: var(--apple-black);
-    color: white;
-}
-
-.more-btn[aria-expanded="true"] {
-    background: var(--apple-black);
-    color: white;
-}
-
-.more-btn[aria-expanded="true"] .more-icon {
-    transform: rotate(45deg);
-}
-
-.more-icon {
-    transition: transform 0.3s ease;
-    font-weight: 400;
 }
 
 .platform-links-bar {
@@ -634,6 +538,90 @@ header {
 
 .app-link:hover .app-link-arrow {
     transform: translateX(3px);
+}
+
+/* Agentz 仓库/主页链接按钮 */
+.repo-links {
+    display: flex;
+    gap: 12px;
+    margin-top: var(--space-lg);
+    flex-wrap: wrap;
+}
+
+.repo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 主页：实心主按钮，自适应深色模式（亮色黑底白字 / 深色白底黑字） */
+.repo-link-home {
+    background: var(--text-primary);
+    color: var(--background-primary);
+}
+
+.repo-link-home:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* GitHub：描边次级按钮，hover 反转 */
+.repo-link-github {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
+}
+
+.repo-link-github:hover {
+    background: var(--text-primary);
+    color: var(--background-primary);
+    transform: translateY(-2px);
+}
+
+/* Gitee：浅灰底三级按钮 */
+.repo-link-gitee {
+    background: var(--background-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.repo-link-gitee:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.repo-link-arrow {
+    transition: transform 0.25s ease;
+}
+
+.repo-link:hover .repo-link-arrow {
+    transform: translateX(3px);
+}
+
+/* Agentzoo - Coming Soon 状态卡片 */
+.service-card-coming-soon {
+    position: relative;
+    opacity: 0.75;
+    border: 1px dashed var(--border-color);
+}
+
+.coming-soon-badge {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: var(--background-secondary);
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
 /* 客户评价 - 苹果风格 */
@@ -866,7 +854,7 @@ header {
 .cta {
     text-align: center;
     padding: var(--space-3xl) 0;
-    background: var(--background-primary);
+    background: var(--bg-glass-section);
 }
 
 .cta h2 {
@@ -888,58 +876,9 @@ header {
     line-height: 1.5;
 }
 
-.cta-buttons {
-    display: flex;
-    gap: var(--space-md);
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* 苹果风格按钮 */
-.btn {
-    padding: 12px 24px;
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 17px;
-    min-height: 44px;
-    min-width: 120px;
-    border: none;
-    outline: none;
-}
-
-.btn-primary {
-    background: var(--apple-black);
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.btn-primary:hover {
-    background: #333;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--apple-black);
-    border: 2px solid var(--apple-black);
-}
-
-.btn-secondary:hover {
-    background: rgba(0, 0, 0, 0.05);
-    transform: translateY(-2px);
-}
-
 /* 页脚 - 苹果风格 */
 footer {
-    background: var(--background-primary);
+    background: var(--bg-glass-section);
     color: var(--text-secondary);
     padding: var(--space-2xl) 0;
     border-top: 1px solid var(--border-color);
@@ -1133,79 +1072,6 @@ a:focus, button:focus {
     outline-offset: 4px;
 }
 
-/* 深色模式切换按钮 - 苹果风格太阳/月亮图标 */
-.theme-toggle {
-    position: relative;
-    width: 36px;
-    height: 36px;
-    background: transparent;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0;
-}
-
-.theme-toggle:hover {
-    background: rgba(0, 0, 0, 0.06);
-}
-
-.theme-toggle:active {
-    transform: scale(0.92);
-}
-
-.theme-toggle:focus {
-    outline: none;
-}
-
-.theme-toggle .icon-sun,
-.theme-toggle .icon-moon {
-    font-size: 20px;
-    line-height: 1;
-    position: absolute;
-    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.theme-toggle .icon-moon {
-    opacity: 0;
-    transform: rotate(-90deg) scale(0.5);
-}
-
-.theme-toggle.dark .icon-sun {
-    opacity: 0;
-    transform: rotate(90deg) scale(0.5);
-}
-
-.theme-toggle.dark .icon-moon {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-}
-
-@media (prefers-color-scheme: dark) {
-    .theme-toggle .icon-sun {
-        opacity: 0;
-        transform: rotate(-90deg) scale(0.5);
-    }
-    
-    .theme-toggle .icon-moon {
-        opacity: 1;
-        transform: rotate(0deg) scale(1);
-    }
-    
-    .theme-toggle.dark .icon-sun {
-        opacity: 1;
-        transform: rotate(0deg) scale(1);
-    }
-    
-    .theme-toggle.dark .icon-moon {
-        opacity: 0;
-        transform: rotate(90deg) scale(0.5);
-    }
-}
-
 /* 滚动进度条 */
 .scroll-progress {
     position: fixed;
@@ -1216,16 +1082,4 @@ a:focus, button:focus {
     width: 0%;
     z-index: 1001;
     transition: width 0.1s ease-out;
-}
-
-/* 导航栏滚动效果 */
-header.scrolled {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(20px);
-}
-
-@media (prefers-color-scheme: dark) {
-    header.scrolled {
-        background: rgba(0, 0, 0, 0.85);
-    }
 }
