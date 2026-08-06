@@ -74,44 +74,95 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll();
 
-    // 二维码点击放大功能
-    const qrItems = document.querySelectorAll('.qr-item');
+    // Footer 社交按钮 - 二维码小浮窗（悬浮在按钮上方）
+    const qrMap = {
+        'wechat-official': { img: 'images/wechat-official-account.jpg', label: '微信公众号' },
+        'wechat-channel':  { img: 'images/wechat-channel.jpg',           label: '视频号' },
+        'xiaohongshu':     { img: 'images/xiaohongshu-qr.png',           label: '小红书' },
+        'bilibili':        { img: 'images/bilibili-qr.png',              label: '哔哩哔哩' }
+    };
 
-    qrItems.forEach(qrItem => {
-        const qrPreview = qrItem.querySelector('.qr-preview');
-        
-        qrItem.addEventListener('click', function(e) {
-            e.stopPropagation();
-            
-            // 切换显示/隐藏
-            const isVisible = qrPreview.style.opacity === '1';
-            
-            // 先隐藏所有其他的预览
-            qrItems.forEach(item => {
-                const preview = item.querySelector('.qr-preview');
-                preview.style.transform = 'translateX(-50%) scale(0.8)';
-                preview.style.opacity = '0';
-                preview.style.visibility = 'hidden';
+    const qrTooltip = document.getElementById('qr-tooltip');
+    const qrTooltipImg = document.getElementById('qr-tooltip-img');
+    const qrTooltipLabel = document.getElementById('qr-tooltip-label');
+
+    if (qrTooltip) {
+        let activeBtn = null;
+
+        const closeTooltip = () => {
+            qrTooltip.classList.remove('active');
+            qrTooltip.setAttribute('aria-hidden', 'true');
+            if (activeBtn) {
+                activeBtn.style.background = '';
+                activeBtn = null;
+            }
+        };
+
+        const positionTooltip = (btn) => {
+            const rect = btn.getBoundingClientRect();
+            const tooltipWidth = qrTooltip.offsetWidth;
+            const gap = 10;
+            // 居中于按钮上方
+            let left = rect.left + rect.width / 2;
+            // 防止溢出左边缘
+            if (left - tooltipWidth / 2 < 8) left = tooltipWidth / 2 + 8;
+            // 防止溢出右边缘
+            if (left + tooltipWidth / 2 > window.innerWidth - 8) {
+                left = window.innerWidth - tooltipWidth / 2 - 8;
+            }
+            qrTooltip.style.left = left + 'px';
+            qrTooltip.style.bottom = (window.innerHeight - rect.top + gap) + 'px';
+        };
+
+        document.querySelectorAll('.social-circle').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // 如果已激活同一个按钮，则关闭
+                if (activeBtn === btn) {
+                    closeTooltip();
+                    return;
+                }
+                const key = btn.dataset.qr;
+                const data = qrMap[key];
+                if (!data) return;
+
+                // 先关闭之前的
+                if (activeBtn) {
+                    activeBtn.style.background = '';
+                }
+
+                qrTooltipImg.src = data.img;
+                qrTooltipImg.alt = data.label + '二维码';
+                qrTooltipLabel.textContent = data.label;
+                qrTooltip.classList.add('active');
+                qrTooltip.setAttribute('aria-hidden', 'false');
+                activeBtn = btn;
+                btn.style.background = 'rgba(255, 255, 255, 0.18)';
+
+                // 定位（等一帧让 tooltip 获得正确宽度）
+                requestAnimationFrame(() => positionTooltip(btn));
             });
-            
-            // 如果当前是隐藏的，就显示
-            if (!isVisible) {
-                qrPreview.style.transform = 'translateX(-50%) scale(1)';
-                qrPreview.style.opacity = '1';
-                qrPreview.style.visibility = 'visible';
+        });
+
+        // 点击页面其他地方关闭
+        document.addEventListener('click', (e) => {
+            if (!qrTooltip.contains(e.target) && !e.target.closest('.social-circle')) {
+                closeTooltip();
             }
         });
-    });
 
-    // 点击页面其他地方关闭预览
-    document.addEventListener('click', function() {
-        qrItems.forEach(qrItem => {
-            const qrPreview = qrItem.querySelector('.qr-preview');
-            qrPreview.style.transform = 'translateX(-50%) scale(0.8)';
-            qrPreview.style.opacity = '0';
-            qrPreview.style.visibility = 'hidden';
+        // ESC 关闭
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && qrTooltip.classList.contains('active')) {
+                closeTooltip();
+            }
         });
-    });
+
+        // 滚动时关闭（避免定位错乱）
+        window.addEventListener('scroll', () => {
+            if (qrTooltip.classList.contains('active')) closeTooltip();
+        }, { passive: true });
+    }
 
     console.log('网站已加载完成');
 });

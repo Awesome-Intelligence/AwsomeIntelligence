@@ -425,7 +425,7 @@
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
-        gap: var(--space-lg);
+        gap: var(--space-xl);
     }
     
     .footer-links {
@@ -435,6 +435,10 @@
     
     .footer-bottom {
         padding-top: var(--space-lg);
+    }
+
+    .media-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -450,6 +454,19 @@
     
     .footer-link-group li {
         margin-bottom: var(--space-xs);
+    }
+
+    .footer-brand {
+        gap: var(--space-md);
+    }
+
+    .social-circle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .footer-text-links {
+        gap: var(--space-sm);
     }
 }
 
