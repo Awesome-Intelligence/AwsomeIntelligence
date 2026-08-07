@@ -419,6 +419,26 @@
         height: 90px;
         border-radius: 22px;
     }
+
+    /* Amazing Life 系列 - 手机端改为竖向排列 */
+    .app-series-card {
+        min-width: unset;
+        max-width: 100%;
+    }
+
+    .app-series-items {
+        flex-direction: column;
+    }
+
+    .app-item-card .app-icon-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .app-placeholder-icon {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 /* 页脚响应式 */
