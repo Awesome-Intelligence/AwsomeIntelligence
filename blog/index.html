@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="application-name" content="Awesome Intelligence">
+    <title>Blog | Awesome Intelligence — Open-Source AI &amp; Developer Tool Reviews</title>
+    <meta name="description" content="Hands-on reviews of open-source AI tools, developer utilities, and agent frameworks — what they do, how they work, and who they are for. By Awesome Intelligence （AI不够酷）.">
+    <meta name="author" content="Awesome Intelligence">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://awesomeintelligence.top/blog/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Blog | Awesome Intelligence">
+    <meta property="og:description" content="Hands-on reviews of open-source AI tools and developer utilities.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awesomeintelligence.top/blog/">
+    <meta property="og:image" content="https://awesomeintelligence.top/images/logo.jpg">
+    <meta property="og:site_name" content="Awesome Intelligence">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | Awesome Intelligence">
+    <meta name="twitter:description" content="Hands-on reviews of open-source AI tools and developer utilities.">
+    <meta name="twitter:image" content="https://awesomeintelligence.top/images/logo.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../images/logo.jpg">
+    <link rel="apple-touch-icon" href="../images/logo.jpg">
+
+    <!-- Site styles (shared with the main site) -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- Blog-only components, built on the site's design tokens -->
+    <style>
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: var(--space-sm) var(--space-md);
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: var(--space-md);
+        }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: var(--background-secondary);
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+        .blog-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: var(--space-md);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .blog-card-link:hover { color: var(--text-secondary); }
+        .blog-note {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 15px;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    </style>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Awesome Intelligence Blog",
+        "description": "Hands-on reviews of open-source AI tools, developer utilities, and agent frameworks.",
+        "url": "https://awesomeintelligence.top/blog/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Awesome Intelligence",
+            "alternateName": "AI不够酷",
+            "url": "https://awesomeintelligence.top/"
+        },
+        "inLanguage": "en"
+    }
+    </script>
+</head>
+<body>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Skip to content (accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header / navigation (same structure as the main site, with a Blog entry) -->
+    <header role="banner">
+        <div class="container header-container">
+            <a href="../index.html" class="logo" aria-label="Back to homepage">AI不够酷</a>
+            <nav class="nav-links" role="navigation" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#agent">Agent Universe</a>
+                <a href="../index.html#ai-applications">Apps</a>
+                <a href="index.html" aria-current="page">Blog</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="blog-heading">
+        <div class="container">
+            <h1 id="blog-heading">The Awesome Intelligence Blog</h1>
+            <p>We read the repos so you don't have to: hands-on reviews of open-source AI tools, developer utilities, and agent frameworks — what they do, how they work, and who they are actually for.</p>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <main id="main-content" class="main-content" role="main">
+        <section class="module-section" aria-label="Latest articles">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Latest Reviews</h2>
+                    <p>One open-source project at a time, tested and explained.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Article card -->
+                    <article class="service-card" role="article">
+                        <div class="post-meta">
+                            <time datetime="2026-11-25">Nov 25, 2026</time>
+                            <span class="tag">Open Source</span>
+                            <span class="tag">AI Agents</span>
+                            <span class="tag">Rust</span>
+                        </div>
+                        <h3><a href="craft-anything.html" style="color: inherit; text-decoration: none;">42,849 Stars in 25 Days: Craft Anything Wants to Understand Any Software — Then Rebuild It</a></h3>
+                        <p>Point it at a website, an app, or a game, and this Rust clean-room engine studies how the original works — with evidence, not guesses — then directs your own coding agent to build your version of it.</p>
+                        <a class="blog-card-link" href="craft-anything.html">Read the review <span aria-hidden="true">→</span></a>
+                    </article>
+                </div>
+
+                <p class="blog-note">New reviews are published regularly. Every project we cover is open source, and every claim is checked against the repository itself.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to top -->
+    <button class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+    <!-- Footer (same structure as the main site) -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">AI不够酷</span>
+                    <p>Awesome Intelligence — an indie studio building AI media, AI apps, and agent systems.</p>
+                    <div class="footer-text-links">
+                        <a href="https://blog.csdn.net/zlt501962603" target="_blank" rel="noopener noreferrer">CSDN</a>
+                        <a href="https://www.zhihu.com/people/jablack" target="_blank" rel="noopener noreferrer">Zhihu</a>
+                        <a href="https://github.com/Awesome-Intelligence" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-link-group">
+                        <h4>Products</h4>
+                        <ul>
+                            <li><a href="../index.html#agent">Agent Universe</a></li>
+                            <li><a href="../index.html#ai-applications">Apps</a></li>
+                            <li><a href="index.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-link-group">
+                        <h4>About</h4>
+                        <ul>
+                            <li><a href="../about.html">About Us</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                            <li><a href="../contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Awesome Intelligence （AI不够酷）. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/navigation.js" defer></script>
+</body>
+</html>
