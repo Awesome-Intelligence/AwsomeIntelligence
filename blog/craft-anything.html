@@ -16,7 +16,7 @@
     <meta property="og:description" content="An open-source Rust clean-room engine that studies how any software works, then rebuilds it with your own coding agent.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://awesomeintelligence.top/blog/craft-anything.html">
-    <meta property="og:image" content="https://awesomeintelligence.top/images/blog/craft-anything-01.png">
+    <meta property="og:image" content="https://awesomeintelligence.top/images/blog/craft-anything-01.webp">
     <meta property="og:site_name" content="Awesome Intelligence">
     <meta property="og:locale" content="en_US">
     <meta property="article:published_time" content="2026-11-25">
@@ -30,7 +30,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="42,849 Stars in 25 Days: Craft Anything Wants to Understand Any Software — Then Rebuild It">
     <meta name="twitter:description" content="An open-source Rust clean-room engine that studies how any software works, then rebuilds it with your own coding agent.">
-    <meta name="twitter:image" content="https://awesomeintelligence.top/images/blog/craft-anything-01.png">
+    <meta name="twitter:image" content="https://awesomeintelligence.top/images/blog/craft-anything-01.webp">
 
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="../images/logo.jpg">
@@ -127,7 +127,7 @@
         "@type": "Article",
         "headline": "42,849 Stars in 25 Days: Craft Anything Wants to Understand Any Software — Then Rebuild It",
         "description": "Craft Anything is an open-source clean-room engine written in Rust. Point it at a website, app, or game and it studies how the original works — with evidence — then has your own coding agent rebuild a version of it.",
-        "image": "https://awesomeintelligence.top/images/blog/craft-anything-01.png",
+        "image": "https://awesomeintelligence.top/images/blog/craft-anything-01.webp",
         "datePublished": "2026-11-25",
         "dateModified": "2026-11-25",
         "author": {
@@ -191,7 +191,7 @@
                         <span class="tag">Rust</span>
                     </div>
 
-                    <img class="post-hero-img" src="../images/blog/craft-anything-01.png" alt="Craft Anything desktop app — project view">
+                    <img class="post-hero-img" src="../images/blog/craft-anything-01.webp" alt="Craft Anything desktop app — project view">
 
                     <!-- ADSENSE SLOT: in-article, below hero image — paste the AdSense ad unit code here once the account is approved. Do not add any ad code before approval. -->
 
@@ -220,14 +220,14 @@
                         <h2>Your agent does the building — and gets graded</h2>
                         <p>Craft Anything does not bring its own model subscription to the build stage. It requires a coding agent already installed and logged in on your machine — Claude Code is the preferred one — and it runs <em>your</em> unmodified copy of that agent, under <em>your</em> login. The project is explicit that it never sees or touches your account. You describe the target ("recreate this game's mechanics in Rust"), and the agent scaffolds a fresh project in the language, framework, or engine you specify. The README's Snake clone was produced exactly this way; when the run finishes, the project page even has a "play the game" button so you can try the result immediately.</p>
 
-                        <img src="../images/blog/craft-anything-02.png" alt="A rebuilt game project in Craft Anything, with a play button">
+                        <img src="../images/blog/craft-anything-02.webp" alt="A rebuilt game project in Craft Anything, with a play button">
 
                         <p>Then comes the part most "AI rebuilds X" demos skip: verification. Every build is compared against the original — web pages at three viewport widths, games through their own self-checks, apps by observing them run — and the mismatches are listed so the loop can iterate until the rebuild converges. "Looks about right" is not the standard; measured similarity is. That said, convergence means <em>similar</em>, not <em>identical</em>, and anything headed for production still deserves your own review pass.</p>
 
                         <h2>Clean room by default, deep mode when you say so</h2>
                         <p>The default mode is a strict clean room. The engine refuses to read anything internal about the original — no source code, no files, no page source. It works only from what an ordinary visitor could observe: screenshots, visible text, and measured layout, colors, fonts, and spacing. Any tool that would peek inside is rejected, and the app tells you how to enable deep mode if that is really what you want. Deep mode — toggled in the title bar or settings, via <code>settings_set deep_mode true</code>, or per-run with the CLI's <code>--deep</code> flag — unlocks the full toolset, lets the built-in engine read program code and files, and will use Ghidra if you have it installed.</p>
 
-                        <img src="../images/blog/craft-anything-03.png" alt="Craft Anything settings, including the deep mode toggle">
+                        <img src="../images/blog/craft-anything-03.webp" alt="Craft Anything settings, including the deep mode toggle">
 
                         <p>The README also draws its ethical line in plain sight: use it on software you own or are permitted to inspect; never to defeat DRM, logins, or anti-cheat systems; and before copying a logo, photo, or text, make sure you own it or have permission. For a tool in this category, stating the boundary that clearly is a feature, not fine print.</p>
 
